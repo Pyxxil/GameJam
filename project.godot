@@ -73,7 +73,7 @@ stretch/mode="2d"
 
 [gdnative]
 
-singletons=[ "res://pythonscript.gdnlib" ]
+singletons=[  ]
 
 [image_loader]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://coin/coin.gd" type="Script" id=1]
 [ext_resource path="res://coin/coin.png" type="Texture" id=2]
 [ext_resource path="res://audio/sound_coin.wav" type="AudioStream" id=3]
 [ext_resource path="res://player/bullet.png" type="Texture" id=4]
+[ext_resource path="res://audio/fire_extinguisher.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
@@ -115,6 +116,8 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 hframes = 4
 
+[node name="BulletShoot" type="Position2D" parent="Sprite"]
+
 [node name="Anim" type="AnimationPlayer" parent="."]
 autoplay = "spin"
 anims/spin = SubResource( 1 )
@@ -138,4 +141,6 @@ texture = ExtResource( 4 )
 [node name="Enabler" type="VisibilityEnabler2D" parent="."]
 pause_particles = false
 
+[node name="SoundShoot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
 [connection signal="body_entered" from="." to="." method="_on_coin_body_enter"]

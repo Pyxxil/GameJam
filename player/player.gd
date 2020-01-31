@@ -15,6 +15,8 @@ const SHOOT_TIME_SHOW_WEAPON = 0.2
 var linear_vel = Vector2()
 var shoot_time = 99999 # time since last shot
 
+var useable = null
+
 var anim = ""
 
 # cache the sprite here for fast access (we will set scale to flip it often)
@@ -22,6 +24,9 @@ onready var sprite = $Sprite
 # cache bullet for fast access
 var Bullet = preload("res://player/Bullet.tscn")
 
+
+func pickup(item):
+	useable = item
 
 func _physics_process(delta):
 	# Increment counters
@@ -54,13 +59,13 @@ func _physics_process(delta):
 		($SoundJump as AudioStreamPlayer2D).play()
 
 	# Shooting
-	if Input.is_action_just_pressed("shoot"):
-		var bullet = Bullet.instance()
-		bullet.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
-		bullet.linear_velocity = Vector2(sprite.scale.x * BULLET_VELOCITY, 0)
-		bullet.add_collision_exception_with(self) # don't want player to collide with bullet
-		get_parent().add_child(bullet) # don't want bullet to move with me, so add it as child of parent
-		($SoundFireExtinguisher as AudioStreamPlayer2D).play()
+	if useable != null and Input.is_action_just_pressed("shoot"):
+		var item = useable.instance()
+		item.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
+		item.linear_velocity = Vector2($Sprite.scale.x * BULLET_VELOCITY, 0)
+		item.add_collision_exception_with(self) # don't want player to collide with bullet
+		get_parent().add_child(item) # don't want bullet to move with me, so add it as child of parent
+		($SoundShoot as AudioStreamPlayer2D).play()
 		shoot_time = 0
 
 	### ANIMATION ###

@@ -60,7 +60,7 @@ func _physics_process(delta):
 		bullet.linear_velocity = Vector2(sprite.scale.x * BULLET_VELOCITY, 0)
 		bullet.add_collision_exception_with(self) # don't want player to collide with bullet
 		get_parent().add_child(bullet) # don't want bullet to move with me, so add it as child of parent
-		($SoundShoot as AudioStreamPlayer2D).play()
+		($SoundFireExtinguisher as AudioStreamPlayer2D).play()
 		shoot_time = 0
 
 	### ANIMATION ###

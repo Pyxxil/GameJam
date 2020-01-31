@@ -215,7 +215,7 @@ position = Vector2( 1099.56, 940.804 )
 position = Vector2( 1339.63, 967.879 )
 
 [node name="tree1" parent="Props" instance=ExtResource( 9 )]
-position = Vector2( 420.399, 1058 )
+position = Vector2( 419.399, 1058 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 251.684, 1045.6 )

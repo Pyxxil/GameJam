@@ -3,3 +3,4 @@ res://
 *.import
 *.ttf
 icons.pngs/
+.DS_Store

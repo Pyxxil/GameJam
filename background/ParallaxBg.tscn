@@ -73,4 +73,3 @@ texture = ExtResource( 6 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 800, 256 )
-

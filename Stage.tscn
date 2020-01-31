@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://coin/Coin.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://enemy/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://background/ParallaxBg.tscn" type="PackedScene" id=7]
 [ext_resource path="res://audio/music.ogg" type="AudioStream" id=8]
+[ext_resource path="res://tree/tree1.tscn" type="PackedScene" id=9]
 
 [node name="Stage" type="Node"]
 
@@ -212,6 +213,9 @@ position = Vector2( 1099.56, 940.804 )
 
 [node name="OneWayPlatform13" parent="Props" instance=ExtResource( 4 )]
 position = Vector2( 1339.63, 967.879 )
+
+[node name="tree1" parent="Props" instance=ExtResource( 9 )]
+position = Vector2( 420.399, 1058 )
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
 position = Vector2( 251.684, 1045.6 )

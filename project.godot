@@ -14,11 +14,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://player/bullet.gd"
 }, {
-"base": "Area2D",
-"class": "Coin",
-"language": "GDScript",
-"path": "res://coin/coin.gd"
-}, {
 "base": "KinematicBody2D",
 "class": "Enemy",
 "language": "GDScript",
@@ -29,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://fire/Fire.gd"
 }, {
+"base": "Area2D",
+"class": "Gun",
+"language": "GDScript",
+"path": "res://pickups/gun.gd"
+}, {
 "base": "Node2D",
 "class": "MovingPlatform",
 "language": "GDScript",
@@ -38,14 +38,20 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://player/player.gd"
+}, {
+"base": "Area2D",
+"class": "Seeds",
+"language": "GDScript",
+"path": "res://pickups/seed.gd"
 } ]
 _global_script_class_icons={
 "Bullet": "",
-"Coin": "",
 "Enemy": "",
 "Fire": "",
+"Gun": "",
 "MovingPlatform": "",
-"Player": ""
+"Player": "",
+"Seeds": ""
 }
 
 [application]

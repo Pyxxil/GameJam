@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://TileSet.tres" type="TileSet" id=1]
 [ext_resource path="res://pickups/Gun.tscn" type="PackedScene" id=2]
 [ext_resource path="res://fire/Fire.tscn" type="PackedScene" id=3]
 [ext_resource path="res://audio/dystopia_music.ogg" type="AudioStream" id=4]
 [ext_resource path="res://player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/Seeds.tscn" type="PackedScene" id=6]
 [ext_resource path="res://background/ParallaxBg.tscn" type="PackedScene" id=7]
+[ext_resource path="res://tree/Tree.tscn" type="PackedScene" id=8]
 
 [node name="Stage" type="Node"]
 
@@ -61,3 +63,14 @@ z_index = 3
 [node name="Fire5" parent="Fires" instance=ExtResource( 3 )]
 position = Vector2( 1631.29, 1074.46 )
 z_index = 2
+
+[node name="Seeds" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3990.4, 1823.89 )
+
+[node name="Tree" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 3806.9, 1823.5 )
+
+[node name="Tree2" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 349.399, 1246 )

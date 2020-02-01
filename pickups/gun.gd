@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name Coin
+class_name Gun
 
 
 var taken = false

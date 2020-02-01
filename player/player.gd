@@ -18,6 +18,7 @@ var has_gun = false
 var has_seeds = false
 var has_tools = false
 var wood_count = 0
+var trees_grown = 0
 
 var anim = ""
 
@@ -40,6 +41,9 @@ func pickup(item):
 		has_tools = true
 	elif item == "Wood":
 		wood_count += 1
+
+func grow_tree():
+	trees_grown += 1
 
 func _physics_process(delta):
 	# Increment counters
@@ -75,7 +79,7 @@ func _physics_process(delta):
 	if has_gun and Input.is_action_just_pressed("shoot"):
 		var bullet = Bullet.instance()
 		bullet.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
-		bullet.linear_velocity = Vector2($Sprite.scale.x * BULLET_VELOCITY, 0)
+		bullet.linear_velocity = Vector2(($Sprite as Sprite).scale.x * BULLET_VELOCITY, 0)
 		bullet.add_collision_exception_with(self) # don't want player to collide with bullet
 		get_parent().add_child(bullet) # don't want bullet to move with me, so add it as child of parent
 		($SoundShoot as AudioStreamPlayer2D).play()
@@ -83,22 +87,22 @@ func _physics_process(delta):
 	elif has_seeds and Input.is_action_just_pressed("plant"):
 		var seeds = Seed.instance()
 		seeds.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
-		seeds.linear_velocity = Vector2($Sprite.scale.x * SEED_VELOCITY, 0)
+		seeds.linear_velocity = Vector2(($Sprite as Sprite).scale.x * SEED_VELOCITY, 0)
 		seeds.add_collision_exception_with(self) # don't want player to collide with seed
-		get_parent().add_child(seeds) # don't want bullet to move with me, so add it as child of parent
+		get_parent().add_child(seeds) # don't want seeds to move with me, so add it as child of parent
 		shoot_time = 0
 	elif has_tools and Input.is_action_just_pressed("cut"):
 		var cut = Cut.instance()
 		cut.position = ($Sprite/BulletShoot as Position2D).global_position
-		cut.linear_velocity = Vector2($Sprite.scale.x * 100, 0)
-		cut.add_collision_exception_with(self) # don't want player to collide with bullet
+		cut.linear_velocity = Vector2(($Sprite as Sprite).scale.x * 100, 0)
+		cut.add_collision_exception_with(self) # don't want player to collide with cutting
 		get_parent().add_child(cut)
 		shoot_time = 0
 	elif has_tools and wood_count > 0 and Input.is_action_just_pressed("repair"):
 		var cut = Cut.instance()
 		cut.position = ($Sprite/BulletShoot as Position2D).global_position
-		cut.linear_velocity = Vector2($Sprite.scale.x * 100, 0)
-		cut.add_collision_exception_with(self) # don't want player to collide with bullet
+		cut.linear_velocity = Vector2(($Sprite as Sprite).scale.x * 100, 0)
+		cut.add_collision_exception_with(self) # don't want player to collide with tools
 		get_parent().add_child(cut) 
 		shoot_time = 0
 

@@ -1,14 +1,16 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://player/player.gd" type="Script" id=1]
 [ext_resource path="res://player/robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://audio/sound_jump.wav" type="AudioStream" id=3]
-[ext_resource path="res://audio/water_hose.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/pure_water.wav" type="AudioStream" id=4]
 [ext_resource path="res://player/osb_left.png" type="Texture" id=5]
 [ext_resource path="res://player/osb_right.png" type="Texture" id=6]
 [ext_resource path="res://player/osb_jump.png" type="Texture" id=7]
 [ext_resource path="res://player/osb_fire.png" type="Texture" id=8]
 [ext_resource path="res://audio/fire_extinguisher.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/tree_grow.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/wood_chop.wav" type="AudioStream" id=11]
 
 [sub_resource type="Animation" id=1]
 resource_name = "crouch"
@@ -193,7 +195,7 @@ script = ExtResource( 1 )
 texture = ExtResource( 2 )
 vframes = 2
 hframes = 16
-frame = 22
+frame = 10
 
 [node name="Smoke" type="Node2D" parent="Sprite"]
 position = Vector2( 20.7312, 3.21187 )
@@ -265,3 +267,11 @@ visibility_mode = 1
 
 [node name="SoundFireExtinguisher" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
+
+[node name="SoundSeed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = 10.0
+
+[node name="SoundCut" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+volume_db = 20.0

@@ -87,14 +87,15 @@ func _physics_process(delta):
 		seeds.linear_velocity = Vector2($Sprite.scale.x * SEED_VELOCITY, 0)
 		seeds.add_collision_exception_with(self) # don't want player to collide with bullet
 		get_parent().add_child(seeds) # don't want bullet to move with me, so add it as child of parent
-		($SoundShoot as AudioStreamPlayer2D).play()
+		($SoundSeed as AudioStreamPlayer2D).play()
 		shoot_time = 0
 	elif has_tools and Input.is_action_just_pressed("cut"):
 		var cut = Cut.instance()
 		cut.position = ($Sprite/BulletShoot as Position2D).global_position
 		cut.linear_velocity = Vector2($Sprite.scale.x * 100, 0)
 		cut.add_collision_exception_with(self) # don't want player to collide with bullet
-		get_parent().add_child(cut) 
+		get_parent().add_child(cut)
+		($SoundCut as AudioStreamPlayer2D).play()
 		shoot_time = 0
 	elif has_tools and wood_count > 0 and Input.is_action_just_pressed("repair"):
 		var cut = Cut.instance()

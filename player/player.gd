@@ -28,6 +28,7 @@ onready var sprite = $Sprite
 var Bullet = preload("res://player/Bullet.tscn")
 var Seed = preload("res://player/Seed.tscn")
 var Cut = preload("res://player/Cut.tscn")
+var Tool = preload("res://player/Tool.tscn")
 
 const BULLET_VELOCITY = 1000
 const SEED_VELOCITY = 100
@@ -98,12 +99,12 @@ func _physics_process(delta):
 		cut.add_collision_exception_with(self) # don't want player to collide with cutting
 		get_parent().add_child(cut)
 		shoot_time = 0
-	elif has_tools and wood_count > 0 and Input.is_action_just_pressed("repair"):
-		var cut = Cut.instance()
-		cut.position = ($Sprite/BulletShoot as Position2D).global_position
-		cut.linear_velocity = Vector2(($Sprite as Sprite).scale.x * 100, 0)
-		cut.add_collision_exception_with(self) # don't want player to collide with tools
-		get_parent().add_child(cut) 
+	elif has_tools and Input.is_action_just_pressed("repair"):
+		var tools = Tool.instance()
+		tools.position = ($Sprite/BulletShoot as Position2D).global_position
+		tools.linear_velocity = Vector2(($Sprite as Sprite).scale.x * 100, 0)
+		tools.add_collision_exception_with(self) # don't want player to collide with tools
+		get_parent().add_child(tools) 
 		shoot_time = 0
 
 	### ANIMATION ###

@@ -25,16 +25,8 @@ __meta__ = {
 position = Vector2( 104.88, 1163.08 )
 
 [node name="ParallaxBg" parent="." instance=ExtResource( 7 )]
-
-[node name="Label" type="Label" parent="."]
-margin_left = 12.0
-margin_top = -202.0
-margin_right = 358.0
-margin_bottom = -10.0
-size_flags_horizontal = 2
-size_flags_vertical = 0
-text = "This is a simple demo on how to make a platformer game with Godot.\"This version uses physics and the 2D physics engine for motion and collision.\"\"The demo also shows the benefits of using the scene system, where coins,\"enemies and the player are edited separatedly and instanced in the stage.\"\"To edit the base tiles for the  tileset, open the tileset_edit.tscn file and follow \"instructions.\""
-autowrap = true
+offset = Vector2( 0, -40 )
+transform = Transform2D( 1, 0, 0, 1, 0, -40 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
@@ -112,3 +104,13 @@ __meta__ = {
 
 [node name="Tools" parent="." instance=ExtResource( 9 )]
 position = Vector2( 4603.07, 1620.92 )
+
+[node name="StartingHelpText" type="RichTextLabel" parent="."]
+margin_left = 59.3598
+margin_top = 1311.54
+margin_right = 614.36
+margin_bottom = 1359.54
+text = "Movement is performed with arrow keys. Left and right to move appropriately, up is jump, and down is crouch."
+__meta__ = {
+"_edit_use_anchors_": false
+}

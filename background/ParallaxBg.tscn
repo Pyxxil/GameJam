@@ -8,7 +8,7 @@
 [ext_resource path="res://background/scroll_bg_fg_1.png" type="Texture" id=6]
 
 [node name="ParallaxBg" type="ParallaxBackground"]
-scroll_base_scale = Vector2( 0.7, 0 )
+scroll_base_scale = Vector2( 1, 0 )
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 motion_mirroring = Vector2( 800, 0 )

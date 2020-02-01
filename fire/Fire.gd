@@ -9,13 +9,9 @@ const STATE_EXTINGUISHED = 1
 
 var state = STATE_BURNING
 
-onready var DetectFloorLeft = $DetectFloorLeft
-onready var DetectWallLeft = $DetectWallLeft
-onready var DetectFloorRight = $DetectFloorRight
-onready var DetectWallRight = $DetectWallRight
 onready var sprite = $Sprite
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var new_anim = "idle"
 
 	if state == STATE_BURNING:

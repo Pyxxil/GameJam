@@ -21,7 +21,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 114.505, 1254.9 )
+position = Vector2( 3541.19, 1825.41 )
 
 [node name="ParallaxBg" parent="." instance=ExtResource( 7 )]
 
@@ -68,9 +68,4 @@ z_index = 2
 position = Vector2( 3990.4, 1823.89 )
 
 [node name="Tree" parent="." instance=ExtResource( 8 )]
-visible = false
-position = Vector2( 3806.9, 1823.5 )
-
-[node name="Tree2" parent="." instance=ExtResource( 8 )]
-visible = false
-position = Vector2( 349.399, 1246 )
+position = Vector2( 3805.4, 1823 )

@@ -21,8 +21,6 @@ var anim = ""
 
 # cache the sprite here for fast access (we will set scale to flip it often)
 onready var sprite = $Sprite
-# cache bullet for fast access
-var Bullet = preload("res://player/Bullet.tscn")
 
 
 func pickup(item):

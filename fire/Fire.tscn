@@ -158,28 +158,6 @@ position = Vector2( -1.06592, 0.68672 )
 rotation = -1.5708
 shape = SubResource( 8 )
 
-[node name="DetectFloorLeft" type="RayCast2D" parent="."]
-position = Vector2( -33.2868, -9.34363 )
-enabled = true
-cast_to = Vector2( 0, 45 )
-
-[node name="DetectWallLeft" type="RayCast2D" parent="."]
-position = Vector2( -12.1361, -0.739977 )
-rotation = 1.5708
-enabled = true
-cast_to = Vector2( 0, 20 )
-
-[node name="DetectWallRight" type="RayCast2D" parent="."]
-position = Vector2( 3.2788, -0.381488 )
-rotation = -1.5708
-enabled = true
-cast_to = Vector2( 0, 20 )
-
-[node name="DetectFloorRight" type="RayCast2D" parent="."]
-position = Vector2( 29.1987, -9.34363 )
-enabled = true
-cast_to = Vector2( 0, 45 )
-
 [node name="Explosion" type="Particles2D" parent="."]
 self_modulate = Color( 1, 1, 1, 0.12 )
 material = SubResource( 6 )

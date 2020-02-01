@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://player/bullet.gd" type="Script" id=1]
+[ext_resource path="res://player/seed.gd" type="Script" id=1]
 [ext_resource path="res://player/bullet.png" type="Texture" id=2]
+[ext_resource path="res://player/seed.png" type="Texture" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -62,7 +63,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[node name="Bullet" type="RigidBody2D"]
+[node name="Seed" type="RigidBody2D"]
 material = SubResource( 1 )
 continuous_cd = 2
 contacts_reported = 1
@@ -79,7 +80,7 @@ texture = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 material = SubResource( 4 )
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 5 )
@@ -90,5 +91,5 @@ autostart = true
 
 [node name="Anim" type="AnimationPlayer" parent="."]
 anims/shutdown = SubResource( 6 )
-[connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_seed_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

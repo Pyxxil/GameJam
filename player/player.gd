@@ -46,6 +46,9 @@ func pickup(item):
 func grow_tree():
 	trees_grown += 1
 
+func use_wood():
+	wood_count -= 1
+
 func _physics_process(delta):
 	# Increment counters
 	shoot_time += delta
@@ -99,7 +102,7 @@ func _physics_process(delta):
 		cut.add_collision_exception_with(self) # don't want player to collide with cutting
 		get_parent().add_child(cut)
 		shoot_time = 0
-	elif has_tools and Input.is_action_just_pressed("repair"):
+	elif has_tools and wood_count > 0 and Input.is_action_just_pressed("repair"):
 		var tools = Tool.instance()
 		tools.position = ($Sprite/BulletShoot as Position2D).global_position
 		tools.linear_velocity = Vector2(($Sprite as Sprite).scale.x * 100, 0)

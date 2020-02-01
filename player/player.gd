@@ -96,6 +96,13 @@ func _physics_process(delta):
 		cut.add_collision_exception_with(self) # don't want player to collide with bullet
 		get_parent().add_child(cut) 
 		shoot_time = 0
+	elif has_tools and wood_count > 0 and Input.is_action_just_pressed("repair"):
+		var cut = Cut.instance()
+		cut.position = ($Sprite/BulletShoot as Position2D).global_position
+		cut.linear_velocity = Vector2($Sprite.scale.x * 100, 0)
+		cut.add_collision_exception_with(self) # don't want player to collide with bullet
+		get_parent().add_child(cut) 
+		shoot_time = 0
 
 	### ANIMATION ###
 

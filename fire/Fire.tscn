@@ -3,7 +3,7 @@
 [ext_resource path="res://fire/Fire.gd" type="Script" id=1]
 [ext_resource path="res://fire/fire.png" type="Texture" id=2]
 [ext_resource path="res://player/bullet.png" type="Texture" id=3]
-[ext_resource path="res://audio/sound_hit.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/fire_crackle.wav" type="AudioStream" id=4]
 [ext_resource path="res://audio/fire_extinguisher.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
@@ -118,10 +118,24 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
+tracks/1/type = "audio"
+tracks/1/path = NodePath("Crackling")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( -2 )
+}
 
 [sub_resource type="CanvasItemMaterial" id=4]
 
-[sub_resource type="CapsuleShape2D" id=8]
+[sub_resource type="CapsuleShape2D" id=5]
 radius = 30.0
 height = 5.0
 
@@ -156,7 +170,7 @@ hframes = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -1.06592, 0.68672 )
 rotation = -1.5708
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="Explosion" type="Particles2D" parent="."]
 self_modulate = Color( 1, 1, 1, 0.12 )
@@ -171,8 +185,10 @@ draw_order = 215832976
 process_material = SubResource( 7 )
 texture = ExtResource( 3 )
 
-[node name="SoundHit" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
-
 [node name="SoundExplode" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
+
+[node name="Crackling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
+autoplay = true

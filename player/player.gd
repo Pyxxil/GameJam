@@ -9,22 +9,38 @@ const SLOPE_SLIDE_STOP = 25.0
 const WALK_SPEED = 250 # pixels/sec
 const JUMP_SPEED = 480
 const SIDING_CHANGE_SPEED = 10
-const BULLET_VELOCITY = 1000
 const SHOOT_TIME_SHOW_WEAPON = 0.2
 
 var linear_vel = Vector2()
 var shoot_time = 99999 # time since last shot
 
-var useable = null
+var has_gun = false
+var has_seeds = false
+var has_tools = false
+var wood_count = 0
 
 var anim = ""
 
 # cache the sprite here for fast access (we will set scale to flip it often)
 onready var sprite = $Sprite
 
+var Bullet = preload("res://player/Bullet.tscn")
+var Seed = preload("res://player/Seed.tscn")
+var Cut = preload("res://player/Cut.tscn")
+
+const BULLET_VELOCITY = 1000
+const SEED_VELOCITY = 100
 
 func pickup(item):
-	useable = item
+	if item == "Seeds":
+		has_seeds = true
+	elif item == "Gun":
+		has_gun = true
+	elif item == "Tools":
+		has_tools = true
+	elif item == "Wood":
+		wood_count += 1
+		
 
 func _physics_process(delta):
 	# Increment counters
@@ -57,13 +73,28 @@ func _physics_process(delta):
 		($SoundJump as AudioStreamPlayer2D).play()
 
 	# Shooting
-	if useable != null and Input.is_action_just_pressed("shoot"):
-		var item = useable.instance()
-		item.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
-		item.linear_velocity = Vector2($Sprite.scale.x * BULLET_VELOCITY, 0)
-		item.add_collision_exception_with(self) # don't want player to collide with bullet
-		get_parent().add_child(item) # don't want bullet to move with me, so add it as child of parent
+	if has_gun and Input.is_action_just_pressed("shoot"):
+		var bullet = Bullet.instance()
+		bullet.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
+		bullet.linear_velocity = Vector2($Sprite.scale.x * BULLET_VELOCITY, 0)
+		bullet.add_collision_exception_with(self) # don't want player to collide with bullet
+		get_parent().add_child(bullet) # don't want bullet to move with me, so add it as child of parent
 		($SoundShoot as AudioStreamPlayer2D).play()
+		shoot_time = 0
+	elif has_seeds and Input.is_action_just_pressed("plant"):
+		var seeds = Seed.instance()
+		seeds.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position
+		seeds.linear_velocity = Vector2($Sprite.scale.x * SEED_VELOCITY, 0)
+		seeds.add_collision_exception_with(self) # don't want player to collide with bullet
+		get_parent().add_child(seeds) # don't want bullet to move with me, so add it as child of parent
+		($SoundShoot as AudioStreamPlayer2D).play()
+		shoot_time = 0
+	elif has_tools and Input.is_action_just_pressed("cut"):
+		var cut = Cut.instance()
+		cut.position = ($Sprite/BulletShoot as Position2D).global_position
+		cut.linear_velocity = Vector2($Sprite.scale.x * 100, 0)
+		cut.add_collision_exception_with(self) # don't want player to collide with bullet
+		get_parent().add_child(cut) 
 		shoot_time = 0
 
 	### ANIMATION ###

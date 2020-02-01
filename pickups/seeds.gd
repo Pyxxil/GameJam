@@ -2,14 +2,11 @@ extends Area2D
 
 class_name Seeds
 
-
 var taken = false
-var Seed = preload("res://player/Seed.tscn")
-
-const BULLET_VELOCITY = 1000
 
 func _on_seeds_body_enter(body):
 	if not taken and body is Player:
+		(self.get_parent().get_node("SeedsHelpText") as RichTextLabel).set_visible(true)
 		($Anim as AnimationPlayer).play("taken")
 		taken = true
-		(body as Player).pickup(Seed)
+		(body as Player).pickup("Seeds")

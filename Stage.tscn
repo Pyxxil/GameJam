@@ -24,7 +24,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1409.8, 886.61 )
+position = Vector2( 105.764, 1222.02 )
 z_index = 1
 
 [node name="ParallaxBg" parent="." instance=ExtResource( 7 )]
@@ -58,7 +58,7 @@ position = Vector2( 1631.29, 1074.46 )
 z_index = 2
 
 [node name="Fire6" parent="Fires" instance=ExtResource( 3 )]
-position = Vector2( 5871.97, 1452.55 )
+position = Vector2( 5868.47, 1452.55 )
 z_index = 6
 
 [node name="Fire7" parent="Fires" instance=ExtResource( 3 )]
@@ -72,6 +72,10 @@ z_index = 4
 [node name="Fire9" parent="Fires" instance=ExtResource( 3 )]
 position = Vector2( 5871.97, 1371.96 )
 z_index = 3
+
+[node name="Fire10" parent="Fires" instance=ExtResource( 3 )]
+position = Vector2( 5855.65, 1336.99 )
+z_index = 2
 
 [node name="Bridge" parent="." instance=ExtResource( 10 )]
 position = Vector2( 5128.04, 1876.89 )

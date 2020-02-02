@@ -273,6 +273,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Thought" type="Label" parent="UI"]
+margin_left = 800.0
+margin_top = 150.0
+grow_horizontal = 2
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SoundFireExtinguisher" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 

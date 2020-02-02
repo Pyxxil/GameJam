@@ -36,6 +36,15 @@ var Tool = preload("res://player/Tool.tscn")
 const BULLET_VELOCITY = 1000
 const SEED_VELOCITY = 100
 
+var thought_time = 3
+var thinking_time = 0
+var has_shot = false
+
+func think(thought):
+	($UI/Thought as Label).set_text(thought)
+	($UI/Thought as Label).set_visible(true)
+	thinking_time = 0
+
 func pickup(item):
 	if item == "Seeds":
 		has_seeds = true
@@ -47,6 +56,10 @@ func pickup(item):
 		wood_count += 1
 	elif item == "Coin":
 		coins_count += 1
+		if coins_count == coins_total - 1:
+			think("These coins are useless, why did humans like them so much?")
+		elif coins_count == coins_total:
+			think("Fixing this planet is so easy, why couldn't the humnas do it?")
 
 func grow_tree():
 	trees_grown += 1
@@ -57,6 +70,8 @@ func use_wood():
 func _physics_process(delta):
 	# Increment counters
 	shoot_time += delta
+	if ($UI/Thought as Label).is_visible():
+		thinking_time += delta
 
 	### MOVEMENT ###
 
@@ -77,6 +92,10 @@ func _physics_process(delta):
 			}
 		)
 	)
+
+	if thinking_time > thought_time:
+		($UI/Thought as Label).set_visible(false)
+		thinking_time = 0
 
 	### CONTROL ###
 
@@ -104,6 +123,9 @@ func _physics_process(delta):
 		get_parent().add_child(bullet) # don't want bullet to move with me, so add it as child of parent
 		($SoundShoot as AudioStreamPlayer2D).play()
 		shoot_time = 0
+		if not has_shot:
+			think("Pew Pew")
+			has_shot = true
 	elif has_seeds and Input.is_action_just_pressed("plant"):
 		var seeds = Seed.instance()
 		seeds.position = ($Sprite/BulletShoot as Position2D).global_position # use node for shoot position

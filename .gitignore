@@ -4,3 +4,5 @@ res://
 *.ttf
 icons.pngs/
 .DS_Store
+*.dmg
+*.cfg

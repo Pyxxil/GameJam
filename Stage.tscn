@@ -170,7 +170,7 @@ __meta__ = {
 position = Vector2( 273.527, 1246.41 )
 
 [node name="Coin2" parent="Coins" instance=ExtResource( 2 )]
-position = Vector2( 932.48, 1228.54 )
+position = Vector2( 930.925, 1217.66 )
 
 [node name="Coin3" parent="Coins" instance=ExtResource( 2 )]
 position = Vector2( 2022.7, 1258.85 )

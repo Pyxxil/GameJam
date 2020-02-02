@@ -6,7 +6,7 @@
 [ext_resource path="res://bridge/RepairedBridge.gd" type="Script" id=4]
 [ext_resource path="res://bridge/Bridge.gd" type="Script" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 750, 10 )
 
 [sub_resource type="CircleShape2D" id=2]
@@ -25,7 +25,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RepairedBridge"]
 position = Vector2( 33.9769, -580.698 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="BrokenBridge" type="StaticBody2D" parent="."]
 script = ExtResource( 3 )

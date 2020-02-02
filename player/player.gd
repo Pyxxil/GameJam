@@ -17,8 +17,11 @@ var shoot_time = 99999 # time since last shot
 var has_gun = false
 var has_seeds = false
 var has_tools = false
+
 var wood_count = 0
 var trees_grown = 0
+var coins_count = 0
+onready var coins_total = 10
 
 var anim = ""
 
@@ -42,6 +45,8 @@ func pickup(item):
 		has_tools = true
 	elif item == "Wood":
 		wood_count += 1
+	elif item == "Coin":
+		coins_count += 1
 
 func grow_tree():
 	trees_grown += 1
@@ -61,6 +66,17 @@ func _physics_process(delta):
 	linear_vel = move_and_slide(linear_vel, FLOOR_NORMAL, SLOPE_SLIDE_STOP)
 	# Detect if we are on floor - only works if called *after* move_and_slide
 	var on_floor = is_on_floor()
+	
+	($UI/Statistics as Label).set_text(
+		"Wood: {wood}\nTrees Planted: {trees}\nCoins: {coins}/{coins_total}".format(
+			{
+				"wood": wood_count,
+				"trees": trees_grown,
+				"coins": coins_count,
+				"coins_total": coins_total,
+			}
+		)
+	)
 
 	### CONTROL ###
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://pickups/gun.gd" type="Script" id=1]
+[ext_resource path="res://coin/Coin.gd" type="Script" id=1]
 [ext_resource path="res://coin/coin.png" type="Texture" id=2]
 [ext_resource path="res://audio/sound_coin.wav" type="AudioStream" id=3]
 [ext_resource path="res://player/bullet.png" type="Texture" id=4]
@@ -131,7 +131,6 @@ stream = ExtResource( 3 )
 
 [node name="Particles" type="Particles2D" parent="."]
 material = SubResource( 4 )
-emitting = false
 lifetime = 2.0
 explosiveness = 1.0
 draw_order = 65793

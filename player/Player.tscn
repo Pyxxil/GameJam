@@ -265,6 +265,14 @@ normal = ExtResource( 8 )
 action = "shoot"
 visibility_mode = 1
 
+[node name="Statistics" type="Label" parent="UI"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "TEST"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="SoundFireExtinguisher" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 9 )
 

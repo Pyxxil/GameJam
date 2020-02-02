@@ -22,17 +22,12 @@ _global_script_classes=[ {
 "base": "Area2D",
 "class": "Coin",
 "language": "GDScript",
-"path": "res://coin/Coin.gd"
+"path": "res://pickups/Coin.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Cut",
 "language": "GDScript",
 "path": "res://player/Cut.gd"
-}, {
-"base": "KinematicBody2D",
-"class": "Enemy",
-"language": "GDScript",
-"path": "res://enemy/enemy.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Fire",
@@ -84,7 +79,6 @@ _global_script_class_icons={
 "Bullet": "",
 "Coin": "",
 "Cut": "",
-"Enemy": "",
 "Fire": "",
 "Gun": "",
 "MovingPlatform": "",

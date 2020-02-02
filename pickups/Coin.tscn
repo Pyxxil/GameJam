@@ -1,10 +1,11 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://coin/Coin.gd" type="Script" id=1]
-[ext_resource path="res://coin/coin.png" type="Texture" id=2]
+[ext_resource path="res://pickups/Coin.gd" type="Script" id=1]
+[ext_resource path="res://pickups/coin.png" type="Texture" id=2]
 [ext_resource path="res://audio/sound_coin.wav" type="AudioStream" id=3]
 [ext_resource path="res://player/bullet.png" type="Texture" id=4]
 [ext_resource path="res://audio/fire_extinguisher.wav" type="AudioStream" id=5]
+
 
 [sub_resource type="Animation" id=1]
 resource_name = "spin"
